@@ -31,6 +31,7 @@ en:
   welcome:
     start_quiz: "Start Quiz"
     instructions:
+      title: "Welcome to QuizApp, <span class=\"username\">%{username}</span>!"
       title: "Welcom to QuizApp, <span class=\"username\">%{username}</span>!"
       subtitle: "Get ready to test your knowledge and have fun with our exciting quizzes! Here are some basic instructions to help you get started:"
       list:
