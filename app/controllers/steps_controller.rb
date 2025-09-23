@@ -76,7 +76,7 @@ class StepsController < ApplicationController
   # Displays the top scores of completed quizzes.
   # Allows download of scoreboard as CSV.
   def scoreboard
-    @top_scores = Answer.where(completed: true).where.not(score: nil).includes(:user).order(score: :desc).limit(10)
+    @top_scores = Answer.where(completed: true).where.not(score: nil).includes(:user).order(score: :desc).limit(25)
     respond_to do |format|
       format.html
       format.csv { send_data generate_csvs(@top_scores), filename: 'top_scores.csv' }
