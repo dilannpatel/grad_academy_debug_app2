@@ -5,7 +5,7 @@
   <hr class="border border-danger w-100 border-2 my-2">
   <% question_index = 0 %>
 
-  <%= form_for @quiz_form, url: step_path(@quiz_form.current_step + 1, locale: I18n.locale), method: :patch do |f| %>
+  <%= form_for @quiz_form, url: step_path(@quiz_form.current_step, locale: I18n.locale), method: :patch do |f| %>
     <%= render partial: "shared/form_errors", locals: { object: @quiz_form, error_style: :quiz } %>
 
     <% if @quiz_form.current_step < 3 %>
