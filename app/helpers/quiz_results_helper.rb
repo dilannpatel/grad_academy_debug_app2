@@ -30,7 +30,9 @@ module QuizResultsHelper
     quiz_results.answer.each_with_index do |answers, page_index|
       answers[1].each_with_index do |answer, question_index|
         correct_answer = fetch_correct_answer(page_index, question_index)
+        puts("This is one print", answer, question_index, correct_answer)
         total_correct += 1 if check_answer(correct_answer, answer)
+        puts("The total correct is ", total_correct)
       end
     end
     total_correct
@@ -62,7 +64,8 @@ module QuizResultsHelper
   def check_answer(correct_answer, user_answer)
     return false if correct_answer == 'N/A' || user_answer == 'N/A'
 
-    correct_answer.strip.downcase
+
+    correct_answer.strip.downcase == user_answer.strip.downcase
   end
 
   # Generates a table row displaying question, correct answer, user's answer, and result (Correct/Incorrect).
@@ -102,7 +105,7 @@ module QuizResultsHelper
   end
 
   # Retrieves the question text for a specific question in a quiz page.
-  #
+  #u
   # Parameters:
   # - page_index: Index of the quiz page.
   # - question_index: Index of the question within the quiz page.
@@ -138,8 +141,8 @@ module QuizResultsHelper
   # Returns:
   # - String indicating whether the user's answer was "Correct" or "Incorrect".
   #
-  def evaluate_result(correct_answer, user_answer)
-    'Incorrect'
+ def evaluate_result(correct_answer, user_answer)
+    (user_answer == correct_answer) ? 'Correct' : 'Incorrect'
   end
 
   # Generates table data (`<td>`) for question, correct answer, user's answer, and result.
