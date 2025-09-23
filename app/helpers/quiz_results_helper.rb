@@ -64,7 +64,6 @@ module QuizResultsHelper
   def check_answer(correct_answer, user_answer)
     return false if correct_answer == 'N/A' || user_answer == 'N/A'
 
-
     correct_answer.strip.downcase == user_answer.strip.downcase
   end
 
@@ -142,7 +141,7 @@ module QuizResultsHelper
   # - String indicating whether the user's answer was "Correct" or "Incorrect".
   #
  def evaluate_result(correct_answer, user_answer)
-    (user_answer == correct_answer) ? 'Correct' : 'Incorrect'
+    user_answer.strip.downcase == correct_answer.strip.downcase ? 'Correct' : 'Incorrect'
   end
 
   # Generates table data (`<td>`) for question, correct answer, user's answer, and result.
